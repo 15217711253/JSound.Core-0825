@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="JSound.App.MenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JSound.App"
+             mc:Ignorable="d"
+             DataContext="{Binding Source={StaticResource Locator},Path=Main}"
+             d:DesignHeight="782"
+             d:DesignWidth="320">
+    <ScrollViewer Margin="0"
+                  Height="auto"
+                  Width="320"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible">
+
+        <StackPanel Orientation="Vertical"
+                    ScrollViewer.CanContentScroll="True"
+                    ScrollViewer.VerticalScrollBarVisibility="Visible">
+            
+            <ItemsControl ItemsSource="{Binding Modules}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Height="48"
+                                     GroupName="menu"
+                                     Tag="{Binding Index}"
+                                     Style="{StaticResource RadioButtonStyle}"
+                                     Command="{Binding DataContext.MenuSelectedCommand,
+                                                RelativeSource={RelativeSource Mode=FindAncestor,
+                                                AncestorType=ItemsControl}}"
+                                     CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self},Path=Tag}"
+                                     Foreground="Black">
+                            <!--MenuRoomSelected-->
+                            <StackPanel Orientation="Horizontal"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Margin="5 0">
+                                <TextBlock FontSize="22"
+                                           FontWeight="ExtraLight"
+                                           Margin="5 0"
+                                           VerticalAlignment="Center"
+                                           FontFamily="{DynamicResource xFonts.Icon}"
+                                           Text="{Binding IconFont}" />
+                                <TextBlock VerticalAlignment="Center"
+                                           Margin="15 0"
+                                           FontSize="18"
+                                           FontFamily="{DynamicResource xFonts.SourceHanSansCn}"
+                                           Text="{Binding Name}" />
+                            </StackPanel>
+                        </RadioButton>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <!-- 分割线 -->
+            <Border Margin="15 0"
+                    Background="Black"
+                    VerticalAlignment="Top"
+                    Opacity="0.5"
+                    Height="0.5" />
+
+            <!-- 播放器列表 -->
+            <RadioButton Height="48"
+                         GroupName="menu"
+                         Style="{StaticResource RadioButtonStyle}"
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Left"
+                         Foreground="Black">
+                <StackPanel Orientation="Horizontal"
+                            Margin="15 0 0 0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left">
+                    <TextBlock Text="&#xe648;"
+                               FontSize="22"
+                               FontWeight="ExtraLight"
+                               Margin="5 0"
+                               VerticalAlignment="Center"
+                               FontFamily="{DynamicResource xFonts.Icon}" />
+                    <TextBlock VerticalAlignment="Center"
+                               Margin="15 0"
+                               FontSize="18"
+                               FontFamily="{DynamicResource xFonts.SourceHanSansCn}">一楼大堂</TextBlock>
+                </StackPanel>
+            </RadioButton>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

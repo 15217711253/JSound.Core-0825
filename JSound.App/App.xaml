@@ -1,0 +1,30 @@
+﻿<Application x:Class="JSound.App.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:JSound.ViewModel;assembly=JSound.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             d1p1:Ignorable="d"
+             xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             StartupUri="LoginView.xaml"
+             
+             >
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Styles/Generic.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Styles/MenuRadioButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Styles/PlayerButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Styles/RadiusButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Styles/MenuButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Styles/ScrollView.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Styles/CircleButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Styles/VolumeSlider.xaml" />
+                <ResourceDictionary>
+                    <vm:ViewModelLocator x:Key="Locator" 
+                                         d:IsDataSource="True" />
+                    
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

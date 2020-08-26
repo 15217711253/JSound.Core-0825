@@ -1,0 +1,158 @@
+﻿<Window x:Class="JSound.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JSound.App"
+        DataContext="{Binding Source={StaticResource Locator},Path=Main}"
+        mc:Ignorable="d"
+        Height="900"
+        Width="1366"
+        Title="MainWindow"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded"
+        Opacity="1"
+        BorderBrush="Black"
+        BorderThickness="1"
+        AllowsTransparency="True"
+        Background="#7FFFFFFF">
+    <Window.Effect>
+        <DropShadowEffect ShadowDepth="1"
+                          BlurRadius="6"
+                          Direction="270"
+                          Opacity="0.75"
+                          Color="White" />
+    </Window.Effect>
+    <Grid>
+        <!-- 布局 -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="320" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.RowSpan="2"
+                Background="#A0FFFFFF">
+        </Border>
+
+        <!-- 标题 -->
+        <Grid MouseLeftButtonDown="LeftTop_MouseDown"
+              Background="Transparent"
+              MouseMove="Grid_MouseMove">
+            <Viewbox>
+                <Grid Height="32"
+                      Width="320">
+                    <TextBlock Text="JSound Audio"
+                               Margin="13 0 0 0 "
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               FontFamily="Regular"
+                               FontSize="12" />
+                </Grid>
+            </Viewbox>
+        </Grid>
+        
+        
+        <!-- 窗口操作 -->
+        <Grid Grid.Column="1"
+              Background="White"
+              MouseMove="Grid_MouseMove"
+              MouseLeftButtonDown="LeftTop_MouseDown">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center">
+                <TextBlock Margin="15 0"
+                           MouseLeftButtonDown="btnHide_MouseLeftButtonDown"
+                           Text="一">
+
+                </TextBlock>
+
+                <TextBlock  Margin="15 0"
+                            MouseLeftButtonDown="btnToggleMax_MouseLeftButtonDown"
+                            Text="口" />
+
+                <TextBlock  Margin="15 0"
+                            Text="X"
+                            MouseLeftButtonDown="btnClose_MouseLeftButtonDown" />
+            </StackPanel>
+        </Grid>
+
+        <!-- 菜单 -->
+
+        <Grid Grid.Row="1"
+              Width="320"
+              Background="Transparent">
+
+            <!-- 菜单布局 -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="56" />
+                <RowDefinition />
+
+                <RowDefinition Height="56" />
+            </Grid.RowDefinitions>
+
+            <!-- 菜单按钮 -->
+            <Grid>
+                <Button x:Name="BtnPop"
+                        Style="{DynamicResource NoMouseOverButtonStyle}"
+                        Height="48"
+                        Width="48"
+                        Margin="0 0 0 8"
+                        Content="&#xe620;"
+                        FontWeight="Bold"
+                        FontSize="16"
+                        Foreground="Black"
+                        FontFamily="{DynamicResource xFonts.Icon}"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left">
+
+                </Button>
+            </Grid>
+
+            <!-- 分割线 -->
+            <Border Grid.Row="2"
+                    Margin="15 0"
+                    Background="Black"
+                    VerticalAlignment="Top"
+                    Opacity="0.5"
+                    Height="0.5" />
+
+            <!-- 设置 -->
+            <RadioButton  Grid.Row="2"
+                          Style="{StaticResource RadioButtonStyle}"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Left"
+                          GroupName="menu"
+                          Foreground="Black">
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            Margin="5 0">
+                    <TextBlock Text="&#xe663;"
+                               FontSize="22"
+                               FontWeight="ExtraLight"
+                               Margin="5 0"
+                               VerticalAlignment="Center"
+                               FontFamily="{DynamicResource xFonts.Icon}" />
+                    <TextBlock VerticalAlignment="Center"
+                               Margin="15 0"
+                               FontSize="18"
+                               FontFamily="{DynamicResource xFonts.SourceHanSansCn}">设置</TextBlock>
+                </StackPanel>
+            </RadioButton>
+
+            <!-- 菜单内容 -->
+            <local:MenuView Grid.Row="1" />
+        </Grid>
+        <Grid Grid.Row="1"
+              Grid.Column="1"
+              Background="White">
+            <ContentPresenter Content="{Binding UserInterface}" />
+        </Grid>
+
+    </Grid>
+</Window>

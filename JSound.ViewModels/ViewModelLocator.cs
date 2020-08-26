@@ -28,6 +28,7 @@ namespace JSound.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<RoomPlayerViewModel>(); //RoomplayerViewModel
+            SimpleIoc.Default.Register<AudioListViewModel>();  //“Ù∆µ
         }
 
         private ObservableCollection<RoomPlayerItemViewModel> roomPlayerItems;
@@ -55,8 +56,15 @@ namespace JSound.ViewModel
             }
         }
 
+        public AudioListViewModel AudioList
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<AudioListViewModel>();
+            }
+        }
 
-        
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

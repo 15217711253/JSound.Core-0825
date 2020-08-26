@@ -10,13 +10,14 @@
         Width="1366"
         Title="MainWindow"
         WindowStyle="None"
-        WindowStartupLocation="CenterScreen"
+        
         Loaded="Window_Loaded"
         Opacity="1"
         BorderBrush="Black"
         BorderThickness="1"
         AllowsTransparency="True"
         Background="#7FFFFFFF">
+    <!-- WindowStartupLocation="CenterScreen"-->
     <Window.Effect>
         <DropShadowEffect ShadowDepth="1"
                           BlurRadius="6"

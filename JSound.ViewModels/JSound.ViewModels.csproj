@@ -64,6 +64,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AudioList\AudioItemViewModel.cs" />
     <Compile Include="AudioList\AudioListViewModel.cs" />
     <Compile Include="IModule.cs" />
     <Compile Include="MainViewModel.cs" />

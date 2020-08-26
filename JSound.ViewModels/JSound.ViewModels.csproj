@@ -64,8 +64,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AudioList\AudioListViewModel.cs" />
     <Compile Include="IModule.cs" />
     <Compile Include="MainViewModel.cs" />
+    <Compile Include="PlayList\PlayListViewModel.cs" />
     <Compile Include="Providers\AsyncProvider.cs" />
     <Compile Include="Providers\CtrlPlayerHelper.cs" />
     <Compile Include="Providers\ModuleProvider.cs" />
@@ -110,5 +112,6 @@
       <Name>JSound.Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
